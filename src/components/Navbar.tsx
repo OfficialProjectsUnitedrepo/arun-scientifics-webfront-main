@@ -7,18 +7,14 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
@@ -26,49 +22,52 @@ const Navbar = () => {
     }
   };
 
+  const navItems = ["about", "products", "dealers","contact"];
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-gradient-to-r from-navy to-[#003366] shadow-md py-3" 
-          : "bg-gradient-to-r from-navy/90 to-[#003366]/90 py-5"
+        isScrolled
+          ? "bg-gradient-to-r from-navy to-[#003366] shadow-lg py-3"
+          : "bg-gradient-to-r from-navy/95 to-[#003366]/95 py-4"
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <h1 className="text-2xl md:text-3xl font-bold text-white">
-          Arun Scientifics
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        <h1 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+          {/* Arun Scientifics */}
         </h1>
 
-        <nav className="hidden md:flex space-x-8">
-          {["about", "products", "sisters", "contact"].map((item) => (
+        <nav className="hidden md:flex space-x-6 lg:space-x-8">
+          {navItems.map((item) => (
             <button
               key={item}
-              className="text-white font-semibold hover:text-gold transition-colors"
+              className="text-white font-medium text-base lg:text-lg hover:text-coral transition-colors duration-200 capitalize"
               onClick={() => scrollToSection(item)}
             >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
+              {item === "sisters" ? "Sister Companies" : item}
             </button>
           ))}
         </nav>
 
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-white focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-gradient-to-r from-navy/95 to-[#003366]/95 py-4 animate-fadeIn">
+        <div className="md:hidden bg-gradient-to-r from-navy/95 to-[#003366]/95 py-6 animate-slide-down">
           <nav className="flex flex-col space-y-4 items-center">
-            {["about", "products", "sisters", "contact"].map((item) => (
+            {navItems.map((item) => (
               <button
                 key={item}
-                className="text-white font-semibold hover:text-gold transition-colors"
+                className="text-white font-medium text-lg hover:text-coral transition-colors duration-200 capitalize"
                 onClick={() => scrollToSection(item)}
               >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
+                {item === "sisters" ? "Sister Companies" : item}
               </button>
             ))}
           </nav>
