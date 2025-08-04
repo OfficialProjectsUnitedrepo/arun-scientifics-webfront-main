@@ -3,13 +3,13 @@ import { Linkedin, Twitter, Instagram } from "lucide-react";
 
 const About = () => {
   return (
-    <section id="about" className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
+    <section id="about" className="py-16 sm:py-20 lg:py-24  bg-gray-50 relative overflow-hidden" aria-labelledby="about-title">
       {/* Subtle Background Effect */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,51,102,0.05)_0%,_transparent_70%)] z-0"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy text-center mb-10 animate-fade-in-up tracking-tight">
+          <h2 id="about-title" className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy text-center mb-10 animate-fade-in-up tracking-tight">
             About Us
           </h2>
 
@@ -24,30 +24,29 @@ const About = () => {
           </div>
 
           <div className="bg-gray-50 p-6 sm:p-8 md:p-10 rounded-xl shadow-sm transform transition-all duration-300 hover:shadow-md animate-fade-in-up animation-delay-400">
-            <p className="text-lg sm:text-xl leading-relaxed mb-6 text-gray-600">
+            <p className="text-lg sm:text-xl leading-relaxed mb-8 text-gray-600">
               Our vision is to support scientific innovation through precision-crafted lab solutions that meet the highest standards of quality and performance.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10 bg-white/80 p-6 rounded-lg shadow-inner">
               <div className="text-center p-4 animate-fade-in-up animation-delay-600">
-                <div className="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 hover:scale-110">
+                <div className="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 hover:scale-110" aria-label="Years of experience">
                   <span className="text-navy text-2xl font-bold">25+</span>
                 </div>
                 <h3 className="font-semibold text-navy text-lg">Years Experience</h3>
               </div>
               <div className="text-center p-4 animate-fade-in-up animation-delay-800">
-                <div className="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 hover:scale-110">
+                <div className="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 hover:scale-110" aria-label="Number of products">
                   <span className="text-navy text-2xl font-bold">500+</span>
                 </div>
                 <h3 className="font-semibold text-navy text-lg">Products</h3>
               </div>
               <div className="text-center p-4 animate-fade-in-up animation-delay-1000">
-                <div className="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 hover:scale-110">
+                <div className="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 hover:scale-110" aria-label="Happy clients">
                   <span className="text-navy text-2xl font-bold">1000+</span>
                 </div>
                 <h3 className="font-semibold text-navy text-lg">Happy Clients</h3>
               </div>
             </div>
-          
           </div>
         </div>
       </div>
@@ -55,4 +54,4 @@ const About = () => {
   );
 };
 
-export default About; 
+export default About;

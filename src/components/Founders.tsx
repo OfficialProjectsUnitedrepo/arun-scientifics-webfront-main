@@ -1,23 +1,15 @@
 import React from "react";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Phone, Linkedin, Twitter } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { User } from "lucide-react";
 
 const founders = [
   {
     name: "K Suresh Reddy",
     title: "Founder",
-    contact: "9949966322",
-    image: "https://via.placeholder.com/150",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
   },
   {
     name: "Arun Reddy",
     title: "Managing Director",
-    contact: "9999892199",
-    image: "https://via.placeholder.com/150",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
   },
 ];
 
@@ -43,31 +35,10 @@ const Founders = () => {
               style={{ animationDelay: `${(index + 3) * 100}ms` }}
             >
               <CardContent className="p-6 text-center">
-                <div className="relative inline-block">
-                  <img
-                    src={founder.image}
-                    alt={founder.name}
-                    className="w-32 h-32 sm:w-36 sm:h-36 rounded-full mx-auto mb-4 object-cover border-2 border-coral transition-transform duration-300 hover:scale-110"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-coral/20 to-navy/20 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
+                <User size={36} className="mx-auto mb-4 text-navy" />
                 <h3 className="text-xl sm:text-2xl font-bold text-navy mb-1">{founder.name}</h3>
                 <p className="text-gray-600 text-base sm:text-lg mb-3">{founder.title}</p>
               </CardContent>
-              <CardFooter className="px-6 pb-6 pt-0 flex justify-center space-x-4">
-                <a
-                  href={`tel:${founder.contact}`}
-                  className="flex items-center text-navy hover:text-coral transition-colors duration-200 text-sm sm:text-base"
-                  aria-label={`Call ${founder.name} at ${founder.contact}`}
-                >
-                  <Phone size={18} className="mr-2" />
-                  <span>{founder.contact}</span>
-                </a>
-                <div className="flex space-x-3">
-                 
-                </div>
-              </CardFooter>
             </Card>
           ))}
         </div>

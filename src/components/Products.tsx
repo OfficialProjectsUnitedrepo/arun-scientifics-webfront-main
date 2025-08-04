@@ -35,6 +35,18 @@ const products = [
 ];
 
 const Products = () => {
+  const handleDownload = (e) => {
+    try {
+      const link = document.createElement("a");
+      link.href = "/product-details.pdf";
+      link.download = "product-details.pdf";
+      link.click();
+    } catch (error) {
+      console.error("Error initiating download:", error);
+      alert("Sorry, the product catalog could not be downloaded. Please try again later or contact support.");
+    }
+  };
+
   return (
     <section id="products" className="py-16 sm:py-20 lg:py-24 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,15 +82,24 @@ const Products = () => {
 
         <div className="text-center mt-12 animate-fade-in-up animation-delay-600">
           <p className="text-base sm:text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-            Looking for something specific? Get in touch with our team for customized solutions.
+            Looking for something specific? Get in touch with our team or download our detailed product catalog.
           </p>
-          <button
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3 bg-transparent border-2 border-navy text-navy font-semibold rounded-full transition-all duration-300 hover:bg-navy hover:text-white hover:shadow-md focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2 w-full sm:w-auto"
-            aria-label="Request Custom Quote"
-          >
-            Request Custom Quote
-          </button>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+            <button
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              className="px-8 py-3 bg-transparent border-2 border-navy text-navy font-semibold rounded-full transition-all duration-300 hover:bg-navy hover:text-white hover:shadow-md focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2 w-full sm:w-auto"
+              aria-label="Request Custom Quote"
+            >
+              Request Custom Quote
+            </button>
+            <button
+              onClick={handleDownload}
+              className="px-8 py-3 bg-coral text-white font-semibold rounded-full transition-all duration-300 hover:bg-navy hover:shadow-md focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2 w-full sm:w-auto"
+              aria-label="Download Product Catalog"
+            >
+              Download Product Catalog
+            </button>
+          </div>
         </div>
       </div>
     </section>

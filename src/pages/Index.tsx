@@ -9,14 +9,16 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import Dealers from "@/components/Dealers";
 import Founders from "@/components/Founders";
+import Gallery from "@/components/Gallery";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Navbar />
+         <Navbar   />
       <main>
         <Hero />
         <About />
+        <Gallery/>
         <Products />
         <SisterCompanies />
         <Dealers />

@@ -22,7 +22,7 @@ const Navbar = () => {
     }
   };
 
-  const navItems = ["about", "products", "dealers","contact"];
+  const navItems = ["about", "products", "dealers", "contact"];
 
   return (
     <header
@@ -30,7 +30,7 @@ const Navbar = () => {
         isScrolled
           ? "bg-gradient-to-r from-navy to-[#003366] shadow-lg py-3"
           : "bg-gradient-to-r from-navy/95 to-[#003366]/95 py-4"
-      }`}
+      } border-b border-gray-200/20`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <h1 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
@@ -59,7 +59,7 @@ const Navbar = () => {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-gradient-to-r from-navy/95 to-[#003366]/95 py-6 animate-slide-down">
+        <div className="md:hidden bg-gradient-to-r from-navy/95 to-[#003366]/95 py-6 animate-slide-down border-b border-gray-200/20">
           <nav className="flex flex-col space-y-4 items-center">
             {navItems.map((item) => (
               <button
@@ -77,4 +77,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar;  
