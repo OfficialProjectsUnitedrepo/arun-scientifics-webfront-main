@@ -9,7 +9,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-navy to-[#003366] text-white py-24 md:py-32 lg:py-48 relative overflow-hidden">
+    <section className="bg-gradient-to-r from-navy to-[#003366] text-white py-24 md:py-22 lg:py-38 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-black/30 z-0"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.15)_0%,_transparent_70%)] z-0"></div>
@@ -21,15 +21,20 @@ const Hero = () => {
           <div className="relative group">
             <div className="absolute -inset-2 bg-gradient-to-r from-coral to-purple-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
             <img
-              src="/ArunScientifics.png"
+              src="/arunwithoutbg.png"
               alt="Arun Scientifics Logo"
-              className="h-28 md:h-36 lg:h-48 w-auto relative z-10 transform group-hover:scale-110 transition-transform duration-300 ease-out"
+             className="h-[180px] md:h-[200px] lg:h-[300px] w-auto relative z-10 transform group-hover:scale-110 transition-transform duration-300 ease-out"
             />
           </div>
         </div>
 
+
+ 
+  <h1 className="text-xl md:text-xl lg:text-2xl font-extrabold mb-10 animate-fade-in-up tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">
+         Manufactures & Dealers: laboratory glassware
+        </h1>
         {/* Main heading with improved typography */}
-        <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold mb-8 animate-fade-in-up tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">
+        <h1 className="text-xl md:text-3xl lg:text-4xl font-extrabold mb-10 animate-fade-in-up tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">
           Delivering Quality Since 1994
         </h1>
 

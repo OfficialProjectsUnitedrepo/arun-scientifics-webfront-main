@@ -21,7 +21,7 @@ const Founders = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy text-center mb-8 animate-fade-in-up tracking-tight">
-          Our Founders
+          Founders
         </h2>
         <p className="text-lg sm:text-xl text-center max-w-3xl mx-auto mb-12 text-gray-600 animate-fade-in-up animation-delay-200">
           Meet the visionary leaders driving our mission to deliver excellence in laboratory glassware and scientific solutions.
