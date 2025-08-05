@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { Mail, Phone, MapPin } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -19,12 +20,61 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    toast({
-      title: "Message Sent",
-      description: "Thank you for contacting us. We'll get back to you soon!",
+
+    // EmailJS configuration
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID; // Fallback if env not loaded
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID ; // Fallback if env not loaded
+    const userID = import.meta.env.VITE_EMAILJS_USER_ID; // No fallback for userID (required)
+
+    if (!serviceID || !templateID || !userID) {
+      console.error("EmailJS configuration missing. Check environment variables.");
+      toast({
+        title: "Error",
+        description: "Configuration issue. Please try again later.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Log data being sent for debugging
+    console.log("Sending data to EmailJS:", {
+      name: formData.name,
+      email: formData.email,
+      title: "Contact Form Enquiry",
+      message: formData.message,
     });
-    setFormData({ name: "", email: "", message: "" });
+
+    // Send email using EmailJS
+    emailjs
+      .send(
+        serviceID,
+        templateID,
+        {
+          name: formData.name, // Maps to {{name}} in template
+          email: formData.email, // Maps to {{email}} for Reply-To and content
+          title: "Contact Form Enquiry", // Maps to {{title}} in subject
+          message: formData.message, // Maps to content
+        },
+        userID
+      )
+      .then(
+        (response) => {
+          console.log("Email sent successfully:", response.status, response.text);
+          toast({
+            title: "Message Sent",
+            description: "Thank you for contacting us. We'll get back to you soon!",
+          });
+          setFormData({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          console.error("Failed to send email:", error);
+          toast({
+            title: "Error",
+            description: "Failed to send message. Please try again later.",
+            variant: "destructive",
+          });
+        }
+      );
   };
 
   return (
@@ -141,7 +191,6 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Google Map */}
               <div className="mt-6">
                 <h4 className="font-semibold text-lg mb-2">Our Location</h4>
                 <div className="relative w-full h-64 rounded-md overflow-hidden shadow-sm">
