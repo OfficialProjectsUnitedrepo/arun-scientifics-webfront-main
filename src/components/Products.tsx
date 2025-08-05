@@ -43,9 +43,8 @@ const products: Product[] = [
 const Products: React.FC = () => {
   const [pdfError, setPdfError] = useState<string | null>(null);
 
-  // Simple function to handle PDF loading errors
   const handlePdfError = () => {
-    setPdfError("Failed to load the product catalog. Please ensure the PDF file is available or contact support.");
+    setPdfError("Failed to load the product catalog. Please download it instead.");
   };
 
   return (
@@ -96,48 +95,42 @@ const Products: React.FC = () => {
           </div>
         </div>
 
-        {/* Simplified PDF Viewer */}
-     {/* Simplified PDF Viewer */}
-<div className="mt-12 animate-fade-in-up animation-delay-800">
-  <h3 className="text-2xl sm:text-3xl font-semibold text-navy text-center mb-6">Product Catalog</h3>
-  <div className="bg-white rounded-xl shadow-lg p-6 max-w-4xl mx-auto border border-gray-200">
-    {pdfError ? (
-      <div className="text-center text-red-600 p-4">
-        <p>{pdfError}</p>
-        <p className="mt-2">
-          Please contact support at{" "}
-          <a href="mailto:support@arunscientifics.com" className="underline text-navy hover:text-coral">
-            support@arunscientifics.com
-          </a>{" "}
-          for assistance.
-        </p>
-      </div>
-    ) : (
-      <div className="flex flex-col items-center">
-        <iframe
-          src="/product-details.pdf#toolbar=0&navpanes=0"
-          className="w-full min-h-[500px] border-none"
-          title="Product Catalog PDF"
-          onError={handlePdfError}
-        >
-          <p className="text-gray-600">
-            Your browser does not support PDFs. Please 
-            <a href="/product-details.pdf" download className="text-navy underline ml-1">
-              download the product catalog
-            </a>
-          </p>
-        </iframe>
-        <a
-          href="/product-details.pdf"
-          download="Arun-Scientifics-Product-Catalog.pdf"
-          className="mt-4 px-4 py-2 bg-navy text-white rounded-full transition-all duration-300 hover:bg-coral focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2"
-        >
-          Download Full Catalog
-        </a>
-      </div>
-    )}
-  </div>
-</div>
+        {/* Optimized PDF Viewer */}
+        <div className="mt-12 animate-fade-in-up animation-delay-800">
+          <h3 className="text-2xl sm:text-3xl font-semibold text-navy text-center mb-6">Product Catalog</h3>
+          <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 max-w-4xl mx-auto border border-gray-200">
+            {pdfError ? (
+              <div className="text-center text-red-600 p-4">
+                <p>{pdfError}</p>
+                <a
+                  href="/product-details.pdf"
+                  download="Arun-Scientifics-Product-Catalog.pdf"
+                  className="mt-4 inline-block px-4 py-2 bg-navy text-white rounded-full transition-all duration-300 hover:bg-coral"
+                >
+                  Download Catalog
+                </a>
+              </div>
+            ) : (
+              <div className="flex flex-col items-center">
+                <div className="w-full aspect-[4/3]">
+                  <iframe
+                    src="/product-details.pdf#toolbar=0&navpanes=0&scrollbar=0&view=fitH"
+                    className="w-full h-full border-none"
+                    title="Product Catalog PDF"
+                    onError={handlePdfError}
+                  />
+                </div>
+                <a
+                  href="/product-details.pdf"
+                  download="Arun-Scientifics-Product-Catalog.pdf"
+                  className="mt-4 px-4 py-2 bg-navy text-white rounded-full transition-all duration-300 hover:bg-coral focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2"
+                >
+                  Download Full Catalog
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );
