@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 
-const products = [
+interface Product {
+  name: string;
+  description: string;
+  features: string[];
+}
+
+const products: Product[] = [
   {
     name: "Beakers",
     description: "Low form glass beakers with spout in multiple sizes",
@@ -34,17 +40,12 @@ const products = [
   },
 ];
 
-const Products = () => {
-  const handleDownload = (e) => {
-    try {
-      const link = document.createElement("a");
-      link.href = "/product-details.pdf";
-      link.download = "product-details.pdf";
-      link.click();
-    } catch (error) {
-      console.error("Error initiating download:", error);
-      alert("Sorry, the product catalog could not be downloaded. Please try again later or contact support.");
-    }
+const Products: React.FC = () => {
+  const [pdfError, setPdfError] = useState<string | null>(null);
+
+  // Simple function to handle PDF loading errors
+  const handlePdfError = () => {
+    setPdfError("Failed to load the product catalog. Please ensure the PDF file is available or contact support.");
   };
 
   return (
@@ -70,7 +71,7 @@ const Products = () => {
                 <ul className="space-y-2">
                   {product.features.map((feature, i) => (
                     <li key={i} className="flex items-center justify-center text-gray-600 text-sm sm:text-base">
-                      <div className="w-2 h-2 rounded-full bg-coral mr-2"></div>
+                      <div className="w-2 h-2 rounded-full bg-coral mr-2" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -82,9 +83,9 @@ const Products = () => {
 
         <div className="text-center mt-12 animate-fade-in-up animation-delay-600">
           <p className="text-base sm:text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-            Looking for something specific? Get in touch with our team or download our detailed product catalog.
+            Looking for something specific? Get in touch with our team or explore our detailed product catalog below.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+          <div className="flex justify-center">
             <button
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               className="px-8 py-3 bg-transparent border-2 border-navy text-navy font-semibold rounded-full transition-all duration-300 hover:bg-navy hover:text-white hover:shadow-md focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2 w-full sm:w-auto"
@@ -92,15 +93,51 @@ const Products = () => {
             >
               Request Custom Quote
             </button>
-            <button
-              onClick={handleDownload}
-              className="px-8 py-3 bg-coral text-white font-semibold rounded-full transition-all duration-300 hover:bg-navy hover:shadow-md focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2 w-full sm:w-auto"
-              aria-label="Download Product Catalog"
-            >
-              Download Product Catalog
-            </button>
           </div>
         </div>
+
+        {/* Simplified PDF Viewer */}
+     {/* Simplified PDF Viewer */}
+<div className="mt-12 animate-fade-in-up animation-delay-800">
+  <h3 className="text-2xl sm:text-3xl font-semibold text-navy text-center mb-6">Product Catalog</h3>
+  <div className="bg-white rounded-xl shadow-lg p-6 max-w-4xl mx-auto border border-gray-200">
+    {pdfError ? (
+      <div className="text-center text-red-600 p-4">
+        <p>{pdfError}</p>
+        <p className="mt-2">
+          Please contact support at{" "}
+          <a href="mailto:support@arunscientifics.com" className="underline text-navy hover:text-coral">
+            support@arunscientifics.com
+          </a>{" "}
+          for assistance.
+        </p>
+      </div>
+    ) : (
+      <div className="flex flex-col items-center">
+        <iframe
+          src="/product-details.pdf#toolbar=0&navpanes=0"
+          className="w-full min-h-[500px] border-none"
+          title="Product Catalog PDF"
+          onError={handlePdfError}
+        >
+          <p className="text-gray-600">
+            Your browser does not support PDFs. Please 
+            <a href="/product-details.pdf" download className="text-navy underline ml-1">
+              download the product catalog
+            </a>
+          </p>
+        </iframe>
+        <a
+          href="/product-details.pdf"
+          download="Arun-Scientifics-Product-Catalog.pdf"
+          className="mt-4 px-4 py-2 bg-navy text-white rounded-full transition-all duration-300 hover:bg-coral focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2"
+        >
+          Download Full Catalog
+        </a>
+      </div>
+    )}
+  </div>
+</div>
       </div>
     </section>
   );

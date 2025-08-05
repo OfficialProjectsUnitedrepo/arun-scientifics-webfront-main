@@ -10,42 +10,56 @@ const Hero = () => {
 
   return (
     <section className="bg-gradient-to-r from-navy to-[#003366] text-white py-24 md:py-32 lg:py-48 relative overflow-hidden">
+      {/* Background effects */}
       <div className="absolute inset-0 bg-black/30 z-0"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.1)_0%,_transparent_70%)] z-0"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.15)_0%,_transparent_70%)] z-0"></div>
+      <div className="absolute inset-0 animate-pulse opacity-20 bg-[url('/ subtle-grid-pattern.png')] bg-repeat bg-[length:50px_50px] z-0"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <div className="flex justify-center mb-8 animate-fade-in-up">
-          <img 
-            src="/ArunScientifics.png" 
-            alt="Arun Scientifics Logo" 
-            className="h-20 md:h-24 lg:h-32 w-auto"
-          />
+        {/* Logo with enhanced effects */}
+        <div className="flex justify-center mb-10 animate-fade-in-up relative">
+          <div className="relative group">
+            <div className="absolute -inset-2 bg-gradient-to-r from-coral to-purple-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+            <img
+              src="/ArunScientifics.png"
+              alt="Arun Scientifics Logo"
+              className="h-28 md:h-36 lg:h-48 w-auto relative z-10 transform group-hover:scale-110 transition-transform duration-300 ease-out"
+            />
+          </div>
         </div>
-        
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 animate-fade-in-up">
+
+        {/* Main heading with improved typography */}
+        <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold mb-8 animate-fade-in-up tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">
           Delivering Quality Since 1994
         </h1>
-       
+
+        {/* Buttons with enhanced hover effects */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up animation-delay-400">
           <button
             onClick={() => scrollToSection("products")}
-            className="px-10 py-4 bg-coral hover:bg-coralHover text-white font-semibold rounded-full transition-colors duration-300 w-full sm:w-auto transform hover:scale-105 text-lg md:text-xl"
+            className="px-12 py-4 bg-coral hover:bg-coralHover text-white font-semibold rounded-full transition-all duration-300 w-full sm:w-auto transform hover:scale-105 hover:shadow-lg hover:shadow-coral/50 text-lg md:text-xl relative overflow-hidden group"
           >
-            Explore Products
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300"></span>
+            <span className="relative z-10">Explore Products</span>
           </button>
           <button
             onClick={() => scrollToSection("contact")}
-            className="px-10 py-4 bg-transparent hover:bg-white/20 text-white font-semibold border-2 border-white rounded-full transition-colors duration-300 w-full sm:w-auto transform hover:scale-105 text-lg md:text-xl"
+            className="px-12 py-4 bg-transparent hover:bg-white/10 text-white font-semibold border-2 border-white/80 rounded-full transition-all duration-300 w-full sm:w-auto transform hover:scale-105 hover:shadow-lg hover:shadow-white/30 text-lg md:text-xl relative overflow-hidden group"
           >
-            Get in Touch
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300"></span>
+            <span className="relative z-10">Get in Touch</span>
           </button>
         </div>
-        <p className="text-lg md:text-2xl lg:text-3xl font-medium max-w-4xl mx-auto mt-10 text-gray-100 animate-fade-in-up animation-delay-200">
-          <span className="block font-semibold">CRAFTED WITH CARE, TRUSTED FOR QUALITY.</span>
-          <span className="block">DELIVERING QUALITY ON TIME, EVERYTIME.</span>
+
+        {/* Subtitle with refined styling */}
+        <p className="text-lg md:text-2xl lg:text-3xl font-medium max-w-4xl mx-auto mt-12 text-gray-100 animate-fade-in-up animation-delay-200 leading-relaxed">
+          <span className="block font-semibold tracking-wide">CRAFTED WITH CARE, TRUSTED FOR QUALITY.</span>
+          <span className="block text-gray-300">DELIVERING QUALITY ON TIME, EVERY TIME.</span>
         </p>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white/10 to-transparent z-0"></div>
+
+      {/* Bottom gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/15 to-transparent z-0"></div>
     </section>
   );
 };

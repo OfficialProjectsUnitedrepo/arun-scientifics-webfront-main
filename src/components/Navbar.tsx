@@ -33,9 +33,16 @@ const Navbar = () => {
       } border-b border-gray-200/20`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <h1 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-          {/* Arun Scientifics */}
-        </h1>
+        <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <span className="text-white text-sm sm:text-base md:text-lg font-serif italic tracking-wide animate-pulse">
+                  Om Namo Venkatesaya 🙏
+                </span>
+                <span className="hidden sm:block text-white text-xs sm:text-sm md:text-base font-light leading-tight max-w-[200px] sm:max-w-[300px]">
+                  May Lord Balaji bless your day with peace, clarity, and success.
+                </span>
+              </div>
+            </div>
 
         <nav className="hidden md:flex space-x-6 lg:space-x-8">
           {navItems.map((item) => (
