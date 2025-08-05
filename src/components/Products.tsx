@@ -42,9 +42,11 @@ const products: Product[] = [
 
 const Products: React.FC = () => {
   const [pdfError, setPdfError] = useState<string | null>(null);
+  const [showFallback, setShowFallback] = useState(false);
 
   const handlePdfError = () => {
-    setPdfError("Failed to load the product catalog. Please download it instead.");
+    setPdfError("Could not load PDF preview");
+    setTimeout(() => setShowFallback(true), 1500);
   };
 
   return (
@@ -95,38 +97,63 @@ const Products: React.FC = () => {
           </div>
         </div>
 
-        {/* Optimized PDF Viewer */}
+        {/* Universal PDF Viewer */}
         <div className="mt-12 animate-fade-in-up animation-delay-800">
           <h3 className="text-2xl sm:text-3xl font-semibold text-navy text-center mb-6">Product Catalog</h3>
           <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 max-w-4xl mx-auto border border-gray-200">
-            {pdfError ? (
-              <div className="text-center text-red-600 p-4">
-                <p>{pdfError}</p>
-                <a
-                  href="/product-details.pdf"
-                  download="Arun-Scientifics-Product-Catalog.pdf"
-                  className="mt-4 inline-block px-4 py-2 bg-navy text-white rounded-full transition-all duration-300 hover:bg-coral"
-                >
-                  Download Catalog
-                </a>
+            {showFallback ? (
+              <div className="text-center p-4">
+                <p className="text-red-600 mb-4">{pdfError || "Preview not available"}</p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="/product-details.pdf"
+                    download="Arun-Scientifics-Product-Catalog.pdf"
+                    className="px-4 py-2 bg-navy text-white rounded-full transition-all duration-300 hover:bg-coral"
+                  >
+                    Download PDF
+                  </a>
+                  <a
+                    href="/product-details.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 border border-navy text-navy rounded-full transition-all duration-300 hover:bg-gray-100"
+                  >
+                    Open in New Tab
+                  </a>
+                </div>
               </div>
             ) : (
               <div className="flex flex-col items-center">
-                <div className="w-full aspect-[4/3]">
+                <div className="w-full" style={{ height: '65vh', minHeight: '400px' }}>
                   <iframe
                     src="/product-details.pdf#toolbar=0&navpanes=0&scrollbar=0&view=fitH"
                     className="w-full h-full border-none"
                     title="Product Catalog PDF"
                     onError={handlePdfError}
-                  />
+                    loading="eager"
+                  >
+                    <div className="text-center p-4">
+                      <p className="text-gray-600 mb-4">Loading PDF preview...</p>
+                    </div>
+                  </iframe>
                 </div>
-                <a
-                  href="/product-details.pdf"
-                  download="Arun-Scientifics-Product-Catalog.pdf"
-                  className="mt-4 px-4 py-2 bg-navy text-white rounded-full transition-all duration-300 hover:bg-coral focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2"
-                >
-                  Download Full Catalog
-                </a>
+                <div className="flex gap-4 mt-4">
+                  <a
+                    href="/product-details.pdf"
+                    download="Arun-Scientifics-Product-Catalog.pdf"
+                    className="px-4 py-2 bg-navy text-white rounded-full transition-all duration-300 hover:bg-coral"
+                  >
+                    Download
+                  </a>
+                  <a
+                    href="/product-details.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 border border-navy text-navy rounded-full transition-all duration-300 hover:bg-gray-100"
+                  >
+                    Open Fullscreen
+                  </a>
+                </div>
               </div>
             )}
           </div>
