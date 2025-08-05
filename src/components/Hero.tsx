@@ -23,7 +23,7 @@ const Hero = () => {
             <img
               src="/arunwithoutbg.png"
               alt="Arun Scientifics Logo"
-             className="h-[180px] md:h-[200px] lg:h-[300px] w-auto relative z-10 transform group-hover:scale-110 transition-transform duration-300 ease-out"
+             className="h-[300px] md:h-[350px] lg:h-[400px] w-auto relative z-10 transform group-hover:scale-110 transition-transform duration-300 ease-out"
             />
           </div>
         </div>
@@ -31,10 +31,10 @@ const Hero = () => {
 
  
   <h1 className="text-xl md:text-xl lg:text-2xl font-extrabold mb-10 animate-fade-in-up tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">
-         Manufactures & Dealers: laboratory glassware
+         Manufactures & Dealers in laboratory glassware
         </h1>
         {/* Main heading with improved typography */}
-        <h1 className="text-xl md:text-3xl lg:text-4xl font-extrabold mb-10 animate-fade-in-up tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">
+        <h1 className="text-xl md:text-xl lg:text-2xl  font-extrabold mb-10 animate-fade-in-up tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">
           Delivering Quality Since 1994
         </h1>
 
