@@ -3,7 +3,7 @@ import { Linkedin, Twitter, Instagram } from "lucide-react";
 
 const About = () => {
   return (
-    <section id="about" className="py-16 sm:py-20 lg:py-24  bg-gray-50 relative overflow-hidden" aria-labelledby="about-title">
+    <section id="about" className="py-12 sm:py-16 lg:py-20  bg-gray-50 relative overflow-hidden" aria-labelledby="about-title">
       {/* Subtle Background Effect */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,51,102,0.05)_0%,_transparent_70%)] z-0"></div>
 
@@ -21,7 +21,15 @@ const About = () => {
             <p className="text-lg sm:text-xl leading-relaxed mb-6 text-gray-600">
               We specialize in large-scale supply of high-quality glass sample vials (5ml), as well as amber and clear glass bottles ranging from 1ml to 200ml. We also offer mobile phase bottles suitable for various laboratory and analytical applications.
             </p>
+             <p className="text-lg sm:text-xl text-gray-600 mb-4">
+              Specializing in{" "}
+              <span className="font-semibold">
+                colour-coded volumetric flasks and Class A laboratory glassware
+              </span>
+              .
+            </p>
           </div>
+
 
           <div className="bg-gray-50 p-6 sm:p-8 md:p-10 rounded-xl shadow-sm transform transition-all duration-300 hover:shadow-md animate-fade-in-up animation-delay-400">
             <p className="text-lg sm:text-xl leading-relaxed mb-8 text-gray-600">

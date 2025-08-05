@@ -4,7 +4,7 @@ import { Mail, MapPin } from "lucide-react";
 
 const sisterCompanies = [
   {
-    name: "Bharat Lab Glass Works",
+    name: "Bharath Lab Glass Works",
     description: "Specialists in lab glassware manufacturing with expertise in custom scientific glassware fabrication and repairs.",
     email: "bharathlabglassworks@gmail.com",
     location: "Hyderabad",
@@ -19,7 +19,7 @@ const sisterCompanies = [
 
 const SisterCompanies = () => {
   return (
-    <section id="sisters" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+    <section id="sisters" className="py-12 sm:py-16 lg:py-20 bg-gray-50 relative overflow-hidden">
       {/* Subtle Background Effect */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,51,102,0.05)_0%,_transparent_70%)] z-0"></div>
 

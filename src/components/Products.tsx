@@ -50,7 +50,7 @@ const Products: React.FC = () => {
   };
 
   return (
-    <section id="products" className="py-16 sm:py-20 lg:py-24 bg-gray-50">
+    <section id="products" className="py-12 sm:py-16 lg:py-20 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy text-center mb-8 animate-fade-in-up">
           Our Products

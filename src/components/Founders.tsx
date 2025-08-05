@@ -15,7 +15,7 @@ const founders = [
 
 const Founders = () => {
   return (
-    <section id="founders" className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
+    <section id="founders" className="py-12 sm:py-16 lg:py-20 bg-gray-50 relative overflow-hidden">
       {/* Subtle Background Effect */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,51,102,0.05)_0%,_transparent_70%)] z-0"></div>
 

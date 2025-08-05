@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const Dealers = () => {
   return (
-    <section id="dealers" className="py-16 sm:py-20 lg:py-24 bg-white">
+    <section id="dealers" className="py-12 sm:py-16 lg:py-20 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy text-center mb-8 animate-fade-in-up">
           Manufacturers & Dealers in Laboratory Glassware
@@ -19,13 +19,7 @@ const Dealers = () => {
               </span>
               , offering premium-quality laboratory glassware and scientific products.
             </p>
-            <p className="text-lg sm:text-xl text-gray-600 mb-4">
-              Specializing in{" "}
-              <span className="font-semibold">
-                colour-coded volumetric flasks and Class A laboratory glassware
-              </span>
-              .
-            </p>
+           
             <p className="text-lg sm:text-xl text-gray-600">
               Trusted by research labs and industries, we ensure reliable supply, competitive pricing, and prompt service.
             </p>

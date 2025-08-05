@@ -58,10 +58,10 @@ const Gallery = () => {
   }));
 
   return (
-    <section id="gallery" className="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
+    <section id="gallery" className="py-12 sm:py-14 lg:py-16 bg-gray-50 relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,51,102,0.03)_0%,_transparent_70%)] z-0"></div>
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-coral via-navy to-coral opacity-10"></div>
+        {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,51,102,0.03)_0%,_transparent_70%)] z-0"></div>
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-coral via-navy to-coral opacity-10"></div> */}
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-8 sm:mb-12">

@@ -121,10 +121,11 @@ const Index = () => {
           <main>
             <Hero />
             <About />
+            <Dealers />
             <Gallery />
             <Products />
             <SisterCompanies />
-            <Dealers />
+
             <Founders />
             <Contact />
           </main>

@@ -28,7 +28,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-gray-50">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy text-center mb-8 animate-fade-in-up">
           Contact Us
@@ -40,7 +40,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
           {/* Contact Form */}
           <div
-            className="bg-white p-6 sm:p-8 md:p-10 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in-up animation-delay-400"
+            className="bg-gray-50 p-6 sm:p-8 md:p-10 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in-up animation-delay-400"
           >
             <h3 className="text-xl sm:text-2xl font-bold text-navy mb-4">Send us a message</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
