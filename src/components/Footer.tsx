@@ -102,6 +102,9 @@ const Footer = () => {
           <p className="text-gray-400 text-sm sm:text-base mb-4 sm:mb-0">
             &copy; {new Date().getFullYear()} Arun Scientifics. All rights reserved.
           </p>
+          <p className="text-gray-400 text-sm sm:text-base">
+              Powered by Inficore Software Solutions Pvt Ltd
+            </p>
           <div className="flex space-x-4">
             <a
               href="#"
